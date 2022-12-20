@@ -23,7 +23,12 @@ public class MouseInteractionPresenter : MonoBehaviour
         // if(selectable == default)
         //     return;
 
-        // selectable.ProduceUnit();
+        if(_selectedObject.CurrentValue != null)
+            _selectedObject.CurrentValue.SetOutlined(false);
+
+        if(selectable != null)
+            selectable.SetOutlined(true);
+            
         _selectedObject.SetValue(selectable);
     }
 }

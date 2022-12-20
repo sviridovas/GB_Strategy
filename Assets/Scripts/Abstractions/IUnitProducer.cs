@@ -6,6 +6,6 @@ namespace Abstractions
 {
     public interface IUnitProducer
     {
-        void ProduceUnit();
+        void ProduceUnit(Transform unitsParent);
     }
 }

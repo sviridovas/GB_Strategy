@@ -13,6 +13,6 @@ public class SelectableValue : ScriptableObject
     public void SetValue(ISelectable value)
     {
         CurrentValue = value;
-        OnSelected?.Invoke(value);
+        OnSelected?.Invoke(CurrentValue);
     }
 }

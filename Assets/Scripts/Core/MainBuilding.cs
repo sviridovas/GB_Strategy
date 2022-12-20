@@ -10,11 +10,23 @@ public class MainBuilding : MonoBehaviour, IUnitProducer, ISelectable
     [field:SerializeField] public Sprite Icon {get; set;}
 
     [SerializeField] private GameObject _unitPrefab;
-    [SerializeField] private Transform _unitsParent;
 
-    public void ProduceUnit()
+    private Outline _outline;
+
+    void Awake()
     {
-        Instantiate(_unitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false;
+    }
+
+    public void SetOutlined(bool enabled)
+    {
+        _outline.enabled = enabled;
+    }
+
+    public void ProduceUnit(Transform unitsParent)
+    {
+        Instantiate(_unitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, unitsParent);
     }
 }
 
